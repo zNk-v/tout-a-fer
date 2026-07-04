@@ -1,7 +1,7 @@
 /* ============================================================
    TOUT À FER — Feuille de style
    Palette « Atelier clair » : fond blanc cassé chaud, texte
-   anthracite, accents acier noir + touche laiton.
+   anthracite, accents acier noir + touche bleu acier.
    Les couleurs se changent ici, dans les variables ci-dessous.
    ============================================================ */
 
@@ -129,7 +129,9 @@ a { color: var(--texte); text-decoration: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18,19,22,0.5) 0%, rgba(18,19,22,0.25) 40%, rgba(18,19,22,0.92) 100%);
+  background:
+    linear-gradient(90deg, rgba(15,16,19,0.92) 0%, rgba(15,16,19,0.6) 38%, rgba(15,16,19,0.15) 72%, rgba(15,16,19,0) 100%),
+    linear-gradient(180deg, rgba(15,16,19,0) 55%, rgba(15,16,19,0.55) 100%);
 }
 .hero-content {
   position: relative;
@@ -424,8 +426,8 @@ a { color: var(--texte); text-decoration: none; }
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #9a7b12;
-  border: 1px dashed rgba(154, 123, 18, 0.5);
+  color: var(--accent);
+  border: 1px dashed rgba(61, 90, 108, 0.5);
   border-radius: 4px;
   padding: 0.2rem 0.5rem;
   align-self: flex-start;
