@@ -7,10 +7,14 @@
 const gallery = document.getElementById("gallery");
 const filters = document.getElementById("filters");
 
-GALERIE.forEach(function (item) {
+GALERIE.forEach(function (item, i) {
   const fig = document.createElement("figure");
   fig.className = "gallery-item";
   fig.dataset.cat = item.cat;
+  fig.dataset.index = i;
+  fig.setAttribute("role", "button");
+  fig.setAttribute("tabindex", "0");
+  fig.setAttribute("aria-label", "Agrandir : " + item.alt);
 
   const img = document.createElement("img");
   img.src = item.src;
@@ -20,12 +24,19 @@ GALERIE.forEach(function (item) {
   img.height = 750;
   img.addEventListener("error", function () {
     fig.replaceChildren(makePlaceholder(item.src));
+    fig.style.cursor = "default";
+    fig.removeAttribute("role");
+    fig.removeAttribute("tabindex");
   });
 
   const cap = document.createElement("figcaption");
   cap.textContent = item.alt;
 
   fig.append(img, cap);
+  fig.addEventListener("click", function () { openLightbox(i); });
+  fig.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(i); }
+  });
   gallery.appendChild(fig);
 });
 
@@ -55,6 +66,68 @@ CATEGORIES.forEach(function (cat, i) {
     });
   });
   filters.appendChild(btn);
+});
+
+/* ---------- Visionneuse : agrandir les images au clic ---------- */
+const lightbox = document.createElement("div");
+lightbox.className = "lightbox";
+lightbox.setAttribute("role", "dialog");
+lightbox.setAttribute("aria-modal", "true");
+lightbox.innerHTML =
+  '<button class="lightbox-close" aria-label="Fermer">&times;</button>' +
+  '<button class="lightbox-nav lightbox-prev" aria-label="Image précédente">&#8249;</button>' +
+  '<button class="lightbox-nav lightbox-next" aria-label="Image suivante">&#8250;</button>' +
+  '<figure><img alt=""><figcaption></figcaption></figure>';
+document.body.appendChild(lightbox);
+
+const lbImg = lightbox.querySelector("img");
+const lbCap = lightbox.querySelector("figcaption");
+let lbCurrent = 0;
+
+/* Ordre de navigation = uniquement les images actuellement visibles (filtre en cours) */
+function visibleIndexes() {
+  return GALERIE.map(function (_, i) { return i; }).filter(function (i) {
+    const fig = gallery.querySelector('.gallery-item[data-index="' + i + '"]');
+    return fig && !fig.classList.contains("hidden");
+  });
+}
+
+function showLightbox(index) {
+  lbCurrent = index;
+  lbImg.src = GALERIE[index].src;
+  lbImg.alt = GALERIE[index].alt;
+  lbCap.textContent = GALERIE[index].alt;
+}
+
+function openLightbox(index) {
+  showLightbox(index);
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+function step(dir) {
+  const vis = visibleIndexes();
+  const pos = vis.indexOf(lbCurrent);
+  if (pos === -1) return;
+  showLightbox(vis[(pos + dir + vis.length) % vis.length]);
+}
+
+lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+lightbox.querySelector(".lightbox-prev").addEventListener("click", function (e) { e.stopPropagation(); step(-1); });
+lightbox.querySelector(".lightbox-next").addEventListener("click", function (e) { e.stopPropagation(); step(1); });
+lightbox.addEventListener("click", function (e) {
+  if (e.target === lightbox || e.target.tagName === "FIGURE") closeLightbox();
+});
+document.addEventListener("keydown", function (e) {
+  if (!lightbox.classList.contains("open")) return;
+  if (e.key === "Escape") closeLightbox();
+  else if (e.key === "ArrowLeft") step(-1);
+  else if (e.key === "ArrowRight") step(1);
 });
 
 /* ---------- Services ---------- */
