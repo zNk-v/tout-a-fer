@@ -6,31 +6,24 @@ Site statique : HTML / CSS / JS, sans build, hébergé sur GitHub Pages.
 
 ---
 
-## 1. Remplacer les photos placeholder par les vraies photos
+## 1. Les photos
 
-Les photos de l'artisan sont sur sa page Facebook :
-https://www.facebook.com/p/Tout-%C3%A0-fer-100057649239787/
+Les vraies photos de l'artisan sont déjà intégrées (récupérées du dossier « Atelier - Tout a fer », redimensionnées et compressées pour le web). Elles sont dans `assets/img/` :
 
-**Étapes :**
-
-1. Sur la page Facebook, ouvrir une photo en grand, clic droit → « Enregistrer l'image sous… ».
-2. Renommer le fichier **exactement** comme le placeholder qu'il remplace (voir tableau ci-dessous).
-3. Déposer le fichier dans le dossier `assets/img/` (remplacer l'ancien).
-4. C'est tout : le site l'affiche sans toucher au code.
-
-| Fichier à créer | Contenu attendu |
+| Fichier | Contenu |
 |---|---|
-| `hero-01.jpg` | LA plus belle photo (grand format, plein écran en haut du site) |
-| `atelier-01.jpg` | Photo de l'atelier ou de l'artisan au travail (format portrait) |
-| `portail-01.jpg` à `portail-03.jpg` | Portails |
-| `garde-corps-01.jpg` à `garde-corps-03.jpg` | Garde-corps, rampes |
-| `ferronnerie-01.jpg` à `ferronnerie-03.jpg` | Ferronnerie d'art, pièces déco |
-| `serrurerie-01.jpg`, `serrurerie-02.jpg` | Grilles de défense, portes métalliques |
-| `mobilier-01.jpg`, `mobilier-02.jpg` | Mobilier en fer forgé |
+| `hero-01.jpg` | Photo plein écran en haut du site (escalier rétroéclairé) |
+| `atelier-01.jpg` | Image verticale de la section « L'atelier » |
+| `verriere-01.jpg` … `verriere-06.jpg` | Verrières d'intérieur |
+| `porte-01.jpg` … `porte-03.jpg` | Portes et portes coulissantes acier-verre |
+| `portail-01.jpg` … `portail-03.jpg` | Portails et portillon |
+| `escalier-01.jpg`, `escalier-02.jpg` | Escaliers et garde-corps |
+| `marquise-01.jpg`, `marquise-02.jpg` | Marquises métal et verre |
+| `mobilier-01.jpg` | Table sur mesure |
 
-**Pour ajouter plus de photos** : déposer le fichier dans `assets/img/` puis ajouter une ligne dans la liste `GALERIE` en haut de `js/config.js` (le format est expliqué dans le fichier).
+**Pour remplacer une photo** : déposer le nouveau fichier dans `assets/img/` avec le même nom (idéalement en JPG, largeur ~1200 px, moins de 250 Ko).
 
-Conseil : viser des photos de moins de 500 Ko (les exporter en JPG qualité ~80, largeur 1200 px suffit). Des photos trop lourdes ralentissent le site.
+**Pour ajouter une photo** : la déposer dans `assets/img/` puis ajouter une ligne dans la liste `GALERIE` en haut de `js/config.js` (le format et les catégories sont expliqués dans le fichier).
 
 ## 2. Modifier les textes
 

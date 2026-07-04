@@ -8,65 +8,73 @@
 /* ---------- GALERIE ----------
    Pour ajouter une photo : déposer le fichier dans assets/img/
    puis ajouter une ligne ici.
-   cat : "portails" | "garde-corps" | "ferronnerie" | "serrurerie" | "mobilier"
+   cat : "verrieres" | "portails" | "escaliers" | "marquises" | "mobilier"
 */
 const GALERIE = [
-  { src: "assets/img/portail-01.jpg",     cat: "portails",    alt: "Portail 2 battants en fer forgé avec volutes" },
-  { src: "assets/img/portail-02.jpg",     cat: "portails",    alt: "Portail coulissant en acier, lignes contemporaines" },
-  { src: "assets/img/portail-03.jpg",     cat: "portails",    alt: "Portillon assorti au portail, fer forgé" },
-  { src: "assets/img/garde-corps-01.jpg", cat: "garde-corps", alt: "Garde-corps d'escalier intérieur en fer forgé" },
-  { src: "assets/img/garde-corps-02.jpg", cat: "garde-corps", alt: "Rampe d'escalier extérieure en acier" },
-  { src: "assets/img/garde-corps-03.jpg", cat: "garde-corps", alt: "Garde-corps de terrasse sur mesure" },
-  { src: "assets/img/ferronnerie-01.jpg", cat: "ferronnerie", alt: "Ferronnerie d'art : rosace forgée à la main" },
-  { src: "assets/img/ferronnerie-02.jpg", cat: "ferronnerie", alt: "Structure décorative en fer forgé" },
-  { src: "assets/img/ferronnerie-03.jpg", cat: "ferronnerie", alt: "Pièce de ferronnerie d'art sur mesure" },
-  { src: "assets/img/serrurerie-01.jpg",  cat: "serrurerie",  alt: "Grille de défense en acier posée sur fenêtre" },
-  { src: "assets/img/serrurerie-02.jpg",  cat: "serrurerie",  alt: "Porte de service métallique sécurisée" },
-  { src: "assets/img/mobilier-01.jpg",    cat: "mobilier",    alt: "Table en fer forgé et bois massif" },
-  { src: "assets/img/mobilier-02.jpg",    cat: "mobilier",    alt: "Console murale en métal, fabrication artisanale" },
+  { src: "assets/img/verriere-01.jpg", cat: "verrieres", alt: "Verrière d'atelier séparant une cuisine, structure acier et porte vitrée" },
+  { src: "assets/img/verriere-02.jpg", cat: "verrieres", alt: "Ensemble de portes-verrières en acier noir, style atelier industriel" },
+  { src: "assets/img/verriere-03.jpg", cat: "verrieres", alt: "Verrière intérieure acier noir sur mesure" },
+  { src: "assets/img/verriere-04.jpg", cat: "verrieres", alt: "Verrière séparant une cuisine, vue depuis l'escalier" },
+  { src: "assets/img/verriere-05.jpg", cat: "verrieres", alt: "Verrière d'escalier en acier avec découpe sur mesure" },
+  { src: "assets/img/verriere-06.jpg", cat: "verrieres", alt: "Verrière de séparation dans une pièce à vivre" },
+  { src: "assets/img/porte-01.jpg",    cat: "verrieres", alt: "Porte coulissante acier et verre pour une cuisine ouverte" },
+  { src: "assets/img/porte-02.jpg",    cat: "verrieres", alt: "Double porte-fenêtre en acier noir vitrée" },
+  { src: "assets/img/porte-03.jpg",    cat: "verrieres", alt: "Porte coulissante acier-verre, séparation de pièce" },
+
+  { src: "assets/img/portail-01.jpg",  cat: "portails",  alt: "Portail coulissant en acier avec pointes de défense" },
+  { src: "assets/img/portail-02.jpg",  cat: "portails",  alt: "Portail battant en acier devant une maison de ville" },
+  { src: "assets/img/portail-03.jpg",  cat: "portails",  alt: "Portillon en acier avec motif losange, finition anthracite" },
+
+  { src: "assets/img/escalier-01.jpg", cat: "escaliers", alt: "Escalier avec marches rétroéclairées et rambarde acier géométrique" },
+  { src: "assets/img/escalier-02.jpg", cat: "escaliers", alt: "Escalier extérieur en acier à marches galvanisées" },
+
+  { src: "assets/img/marquise-01.jpg", cat: "marquises", alt: "Marquise métal et verre couvrant une cour intérieure" },
+  { src: "assets/img/marquise-02.jpg", cat: "marquises", alt: "Marquise vitrée sur ossature acier, protection d'entrée" },
+
+  { src: "assets/img/mobilier-01.jpg", cat: "mobilier",  alt: "Table basse plateau bois et piètement acier sur mesure" },
 ];
 
 /* Les boutons de filtre de la galerie */
 const CATEGORIES = [
-  { id: "tous",        label: "Tout voir" },
-  { id: "portails",    label: "Portails" },
-  { id: "garde-corps", label: "Garde-corps" },
-  { id: "ferronnerie", label: "Ferronnerie d'art" },
-  { id: "serrurerie",  label: "Serrurerie" },
-  { id: "mobilier",    label: "Mobilier" },
+  { id: "tous",      label: "Tout voir" },
+  { id: "verrieres", label: "Verrières & portes" },
+  { id: "portails",  label: "Portails" },
+  { id: "escaliers", label: "Escaliers & garde-corps" },
+  { id: "marquises", label: "Marquises" },
+  { id: "mobilier",  label: "Mobilier" },
 ];
 
 /* ---------- SERVICES ---------- */
 const SERVICES = [
   {
-    icone: "⌸",
-    titre: "Portails & clôtures",
-    texte: "Battants ou coulissants, en fer forgé ou en acier, dessinés à vos dimensions et posés par nos soins.",
+    icone: "▤",
+    titre: "Verrières d'intérieur",
+    texte: "Séparations style atelier en acier, pour ouvrir l'espace et laisser passer la lumière sans perdre en cachet.",
   },
   {
-    icone: "⌇",
-    titre: "Garde-corps & rampes",
-    texte: "Escaliers, terrasses, balcons : des ouvrages aux normes, qui sécurisent sans alourdir.",
+    icone: "◫",
+    titre: "Portes acier & verre",
+    texte: "Portes coulissantes ou battantes, doubles portes vitrées : des ouvrages fins, sur mesure, montés au millimètre.",
   },
   {
     icone: "⊞",
-    titre: "Grilles & protections",
-    texte: "Grilles de défense, portes métalliques et fermetures qui protègent votre maison avec élégance.",
+    titre: "Portails & portillons",
+    texte: "Battants ou coulissants, en acier, dessinés à vos dimensions et posés par nos soins.",
+  },
+  {
+    icone: "⌇",
+    titre: "Escaliers & garde-corps",
+    texte: "Escaliers intérieurs et extérieurs, rambardes et garde-corps aux normes, du plus sobre au plus graphique.",
+  },
+  {
+    icone: "◹",
+    titre: "Marquises & verrières de toit",
+    texte: "Marquises métal et verre pour abriter une entrée ou couvrir une cour, alliant légèreté et solidité.",
   },
   {
     icone: "✦",
-    titre: "Ferronnerie d'art",
-    texte: "Pièces uniques forgées à la main : volutes, rosaces, créations décoratives sur mesure.",
-  },
-  {
-    icone: "⌂",
-    titre: "Mobilier en fer forgé",
-    texte: "Tables, consoles, étagères : du mobilier qui traverse les années, fabriqué à l'atelier.",
-  },
-  {
-    icone: "⚿",
-    titre: "Serrurerie",
-    texte: "Installation et remplacement de serrures, sécurisation d'accès, interventions dans tout le secteur.",
+    titre: "Mobilier & sur-mesure",
+    texte: "Tables, structures, mezzanines, pièces uniques : tout ce que le métal permet d'imaginer pour votre lieu.",
   },
 ];
 
@@ -76,17 +84,17 @@ const SERVICES = [
 */
 const AVIS = [
   {
-    texte: "Portail posé en trois semaines, du dessin à l'installation. Le travail est propre et solide, on nous en parle à chaque visite.",
+    texte: "Une verrière d'atelier posée dans la cuisine, du dessin à l'installation. Le travail est net, l'acier parfaitement ajusté, la pièce a complètement changé.",
     auteur: "M. et Mme D., Breuillet",
     fictif: true,
   },
   {
-    texte: "Une rampe d'escalier entièrement sur mesure. L'artisan a su traduire ce qu'on imaginait, le résultat dépasse le croquis de départ.",
+    texte: "Un escalier sur mesure avec rambarde métal. L'artisan a su traduire ce qu'on imaginait, le résultat dépasse le croquis de départ.",
     auteur: "Claire M., Arpajon",
     fictif: true,
   },
   {
-    texte: "Grilles de défense posées rapidement, finitions impeccables. Contact direct avec l'artisan du début à la fin, ça change tout.",
+    texte: "Portail posé rapidement, finitions impeccables. Contact direct avec l'artisan du début à la fin, ça change tout.",
     auteur: "S. Lopez, Brétigny-sur-Orge",
     fictif: true,
   },
